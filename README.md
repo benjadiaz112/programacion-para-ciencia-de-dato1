@@ -1,43 +1,62 @@
 # programacion-para-ciencia-de-dato1
-guia 2
-Proyecto: Procesamiento de Notas de Estudiantes (Duoc UC)
-Este proyecto nace de la necesidad de enfrentar un problema común en el mundo del análisis de datos: la información "sucia". Trabajé con un dataset de registros académicos que presentaba inconsistencias de formato, espacios innecesarios y valores no numéricos, con el objetivo de transformarlo en un reporte de rendimiento limpio y funcional.
+guia 3
 
-El Proceso de Desarrollo
-Para cumplir con los objetivos de la Guía 2, estructuré el código de manera modular, enfocándome en la reutilización de funciones y el manejo eficiente de errores en los datos.
 
-1. Diagnóstico y Carga
-El primer paso fue importar la librería Pandas y realizar una inspección del archivo notasdeestudiantes.csv. Detecté que las columnas de notas necesitaban una transformación profunda antes de poder realizar cualquier cálculo matemático, debido al uso de comas y etiquetas de texto como "NR".
+🏅 Proyecto de Limpieza y Análisis de Datos Deportivos (2281 Registros)
+Este proyecto aplica técnicas avanzadas de Data Cleaning 🧹 y Data Analysis 📊 sobre un dataset extenso de más de 2000 registros de deportistas. El objetivo principal fue automatizar el procesamiento de una base de datos de gran volumen para obtener estadísticas confiables y precisas. 🎯
 
-2. Limpieza de Datos (Función: limpiar_estudiantes)
-En lugar de limpiar celda por celda, diseñé una función que automatiza el trabajo pesado:
+📁 Estructura del Proyecto
+El proyecto está organizado de forma modular para facilitar la escalabilidad y el orden: 🏗️
 
-Normalización de texto: Utilicé .strip() para eliminar espacios invisibles que suelen causar errores al agrupar por carrera o buscar nombres.
+📂 data/: Contiene el dataset original (deportistas.csv). 📄
 
-Procesamiento con Bucles: Implementé un ciclo for para recorrer las columnas de notas, reemplazando comas por puntos y convirtiendo todo a tipo flotante.
+📂 src/: Módulos de Python con la lógica del negocio. 🧠
 
-Manejo de Excepciones: Configuré el proceso para que los valores no válidos (como ausencias) se trataran de forma que no interrumpieran el cálculo del promedio final.
+🐍 limpieza.py: Algoritmos de limpieza y tratamiento de outliers.
 
-3. Análisis de Métricas (Función: resumen_general)
-Una vez con los datos limpios, generé un resumen estadístico para obtener una visión global del curso:
+🐍 analisis.py: Funciones de agregación y cálculo estadístico.
 
-Conteo total de alumnos procesados.
+📂 notebooks/: Cuaderno analisis.ipynb que actúa como orquestador del proceso. 📓
 
-Promedio general del grupo.
+📂 outputs/: Resultados finales listos para presentación. 📤
 
-Identificación de los extremos: la nota más alta y la más baja obtenida.
+🛠️ Procesos Realizados para el Big Data
+1. Limpieza de Datos Masiva 🧹
+Dado el volumen de 2281 datos, se implementaron procesos automáticos para:
 
-4. Segmentación Académica (Función: promedio_por_carrera)
-Para finalizar, utilicé operaciones de agrupación (groupby) para comparar el rendimiento entre las distintas carreras. Esto permite identificar rápidamente qué programas académicos están teniendo un mejor desempeño o cuáles requieren mayor apoyo.
+Normalización de columnas: 📋 Transformación de encabezados para asegurar la compatibilidad en las consultas.
 
-Tecnologías Utilizadas
-Python 3 como lenguaje principal.
+Imputación de Nulos: 🧮 Se detectaron y rellenaron valores faltantes en las métricas de rendimiento y salud utilizando promedios calculados.
 
-Pandas para la estructuración y limpieza de tablas.
+Deduplicación: 🚫 Identificación y eliminación de registros redundantes en la base de datos.
 
-NumPy para la lógica de estados y manejo de nulos.
+Tratamiento de Errores de Formato: 🔄 Conversión masiva de datos tipo string (con comas) a float (con puntos) para permitir operaciones aritméticas.
 
-Google Colab como entorno de desarrollo y ejecución.
+Filtrado de Outliers (IQR): 📉 Se aplicó el método del Rango Intercuartílico para descartar datos ruidosos en peso y entrenamiento, garantizando promedios reales.
 
-Conclusión Personal
-Este ejercicio me permitió entender que la calidad de cualquier análisis o modelo de IA depende enteramente de la etapa de pre-procesamiento. Dominar herramientas como los bucles para limpieza y las funciones de agregación es clave para cualquier desarrollador que trabaje con datos.
+2. Análisis de Rendimiento 📈
+Agrupación Estadística: 🔢 Se procesaron las filas para calcular el rendimiento promedio por cada disciplina deportiva.
+
+Detección de Atletas de Elite: ⭐ Filtrado automático de los deportistas con puntajes superiores a la media.
+
+📊 Resultados Exportados
+El flujo de trabajo genera dos archivos clave en la carpeta outputs/: 🏁
+
+✨ deportistas_limpios.csv: La base de datos depurada, sin nulos y con formatos corregidos.
+
+📊 analisis_por_deporte.csv: Tabla comparativa con los promedios de rendimiento de todas las categorías analizadas.
+
+💻 Tecnologías Utilizadas
+Python 3.x 🐍
+
+Pandas 🐼 (Procesamiento de grandes volúmenes de datos)
+
+NumPy 🔢
+
+Jupyter Notebooks 📓
+
+👤 Autor: Benjamin Diaz
+
+📅 Fecha: Marzo 2026
+
+🌟 Estado: Completado
